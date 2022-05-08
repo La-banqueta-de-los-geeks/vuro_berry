@@ -103,10 +103,12 @@ const { config } = require('./config/config');
 // You can also use `import Redis from "ioredis"`
 // if your project is an ESM module or a TypeScript project.
 const Redis = require("ioredis");
+const { index } = require('./repositories/http/users');
 
 // Create a Redis instance.
 // By default, it will connect to localhost:6379.
 // We are going to cover how to specify connection options soon.
+console.log(config);
 const redis = new Redis(config.REDIS_URL);
 
 redis.set("mykey", "value"); // Returns a promise which resolves to "OK" when the command succeeds.
@@ -162,3 +164,5 @@ redis.on("device_port_1", (channel, message) => {
   // Both `channel` and `message` are buffers.
   console.log(channel, message);
 });
+
+new User().index()
