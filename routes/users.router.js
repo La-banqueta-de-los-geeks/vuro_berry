@@ -13,9 +13,16 @@ router.get("/", (req, res) => {
   );
   else
   res.json(
-    {
-      test: 'Example'
-    }
+    [
+      {
+        test: 'Example'
+      },
+      {
+        test: 'Example'
+      },{
+        test: 'Example'
+      }
+    ]
   );
 });
 
